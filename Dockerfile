@@ -2,15 +2,9 @@
 
 FROM microsoft/aspnetcore-build:2.0  
 
-
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-choco install 7zip.install
-
-$7zPath = (Get-ChildItem "C:\Program Files","C:\Program Files (x86)" -Include "7-zip" -Recurse -ErrorAction SilentlyContinue).FullName
-
-$7zPath
-
-#add it to PATH environment variable
-$env:Path += ";$7zPath;"
-	
+RUN apt-get -y update      
+RUN apt-get -y install zip
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" 
+				-o "awscli-bundle.zip"
+RUN unzip awscli-bundle.zip
+RUN ./awscli-bundle/install -b ~/bin/aws
