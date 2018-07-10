@@ -8,6 +8,8 @@ choco install 7zip.install
 
 $7zPath = (Get-ChildItem "C:\Program Files","C:\Program Files (x86)" -Include "7-zip" -Recurse -ErrorAction SilentlyContinue).FullName
 
+$7zPath
+
 #add it to PATH environment variable
 $env:Path += ";$7zPath;"
 	
