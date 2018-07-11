@@ -8,5 +8,6 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -b ~/bin/aws
 RUN npm install npm@latest -g
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
-RUN apt-get install -y nodejs
+RUN npm cache clean -f
+RUN npm install -g n
+RUN n stable
