@@ -7,8 +7,8 @@ RUN apt-get -y install zip
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -b ~/bin/aws
-RUN npm cache clean -f
-RUN npm install npm@latest -g
-
+RUN npm i -g npm3 && npm3 -g uninstall npm
+RUN npm3 i -g npm@latest
+RUN npm -v
 RUN npm install -g n
 RUN n stable
