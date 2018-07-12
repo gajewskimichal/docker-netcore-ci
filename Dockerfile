@@ -7,7 +7,7 @@ RUN apt-get -y install zip
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -b ~/bin/aws
-RUN apt-get install -f build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+RUN apt-get -y install  build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
 RUN ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 RUN export PATH="$HOME/.linuxbrew/bin:$PATH"
 RUN export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
