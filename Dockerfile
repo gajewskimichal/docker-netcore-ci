@@ -8,10 +8,10 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -b ~/bin/aws
 RUN apt-get -y install  build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
-RUN test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-RUN test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-RUN test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
-RUN echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
+RUN git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+RUN PATH="$HOME/.linuxbrew/bin:$PATH"
+RUN export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+RUN export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
 RUN brew install node
 RUN npm -v
 RUN node -v
