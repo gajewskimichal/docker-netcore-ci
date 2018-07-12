@@ -1,6 +1,6 @@
 #Docker image for CI of .NET Core code to Amazon Lambda
 
-FROM microsoft/aspnetcore-build:2.0  
+FROM microsoft/dotnet:2.1-sdk 
 
 RUN apt-get -y update      
 RUN apt-get -y install zip
