@@ -9,8 +9,9 @@ RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -b ~/bin/aws
 RUN npm i -g npm3 && npm3 -g uninstall npm
 RUN npm3 i -g npm@latest
-
 RUN npm install -g n
 RUN n stable
 RUN npm -v
 RUN node -v
+RUN npm install -g @angular/cli
+RUN ng version
