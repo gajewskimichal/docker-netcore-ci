@@ -15,4 +15,4 @@ RUN npm -v
 RUN node -v
 RUN npm install -g @angular/cli
 RUN ng version
-RUN apt install google-chrome-stable
+RUN apt-get install -y google-chrome-stable
